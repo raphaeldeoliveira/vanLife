@@ -12,6 +12,7 @@ export default function Home() {
             <Button 
                 bgColor="#ff9100"
                 title="Find your van"
+                to="./vans"
             />
         </div>
     )

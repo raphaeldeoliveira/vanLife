@@ -1,9 +1,14 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 export default function Button(props) {
     return (
-        <button
+        <Link
+            className="button-link"
             style={{ backgroundColor: props.bgColor }}
-        >{props.title}</button>
+            to={props.to}
+        >{props.title}
+        </Link>
     )
 }

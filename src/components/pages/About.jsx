@@ -16,6 +16,7 @@ export default function About() {
                 <Button 
                     bgColor="#000000"
                     title="Explore our vans"
+                    to="/vans"
                 />
             </div>
         </div>
