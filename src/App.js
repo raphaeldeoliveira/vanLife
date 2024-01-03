@@ -1,23 +1,20 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/organisms/Header";
+import Footer from "./components/organisms/Footer";
 
-function Home() {
-  return <h1>Home page</h1>
-}
-
-function About() {
-  return <h1>About page</h1>
-}
+import Home from "./components/pages/Home";
+import About from "./components/pages/About"
 
 function App() {
   return (
     <BrowserRouter>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
