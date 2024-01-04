@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Button from "../molecules/home/Button";
+import Button from "../../molecules/home/Button";
 
 export default function VanDetail() {
 

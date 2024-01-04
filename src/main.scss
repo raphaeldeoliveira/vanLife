@@ -207,6 +207,23 @@ footer {
     }
 }
 
+.hostLayout {
+    nav {
+        display: flex;
+        width: 80%;
+        justify-content: space-around;
+        margin: 15px auto;
+    }
+    .host-link {
+        color: black;
+        text-decoration: none;
+
+        &:hover {
+            color: #c46521;
+        }
+    }
+}
+
 .button-link {
     border: none;
     font-weight: bold;
