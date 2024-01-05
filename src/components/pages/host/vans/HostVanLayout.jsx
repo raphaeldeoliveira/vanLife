@@ -13,7 +13,7 @@ export default function HostVanLayout() {
             .then(response => response.json())
             .then(data => setVanData(data))
             .catch(error => console.log("failed fetch", error))
-    }, [])
+    }, [parameters.id])
 
     return (
         <div className="hostVanDetail">
@@ -21,7 +21,7 @@ export default function HostVanLayout() {
             {(vanData ? (
                 <div className="hostVanDetail__card">
                     <div className="card__header">
-                        <img src={vanData.urlImage}/>
+                        <img src={vanData.urlImage} alt=""/>
                         <div>
                             <h4 className={vanData.vanCategory}>{vanData.vanCategory}</h4>
                             <h2>{vanData.vanName}</h2>

@@ -19,7 +19,7 @@ export default function VanDetail() {
         <div className="vanDetail">
             {(dataVan ? (
                 <>
-                    <img src={dataVan.urlImage} />
+                    <img src={dataVan.urlImage} alt=""/>
                     <i
                         className={dataVan.vanCategory}
                     >{dataVan.vanCategory}</i>
