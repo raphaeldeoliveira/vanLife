@@ -25,9 +25,13 @@ header {
             font-weight: bold;
 
             &:hover {
-                color: black;
+                color: rgb(203, 141, 70);
                 transition: color 300ms ease;
             }
+        }
+
+        .link--active {
+            color: black;
         }
     }
 }
@@ -222,6 +226,119 @@ footer {
             color: #c46521;
         }
     }
+    .host-link--active {
+        color: red;
+    }
+}
+
+.hostVans {
+    background-color: rgb(255, 255, 187);
+    
+    color: black;
+
+    h1 {
+        padding: 30px;
+    }
+
+    .hostVans__card {
+        padding: 15px;
+        background-color: white;
+        width: 80%;
+        display: flex;
+        margin: 25px auto;
+        border: 1px solid black;
+
+        img {
+            width: 90px;
+        }
+
+        div {
+            padding: 10px 20px;
+            color: black;
+
+            h3 {
+                margin-top: 5px;
+                font-weight: lighter;
+                color: lighten(black, 30%);
+            }
+        }
+
+        
+    }
+}
+
+.hostVanDetail {
+    background-color: rgb(255, 255, 187);
+
+    a {
+        color: black;
+        padding: 20px 30px;
+        display: block;
+    }
+
+    .hostVanDetail__card {
+        width: 90%;
+        margin: auto;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        .card__header {
+            display: flex;
+            padding: 0px 20px;
+            padding-top: 20px;
+
+            img {
+                width: 30%;
+            }
+        }
+
+        .card__main {
+            padding-bottom: 10px;
+
+            h5 {
+                font-weight: lighter;
+                padding: 5px 22px;
+
+                .text-key {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    h2 {
+        margin: 10px 18px;
+    }
+
+    h3 {
+        margin: 0px 18px;
+    }
+
+    .Lauring, .Explore, .Reggae {
+        color: white;
+        font-weight: bold;
+        padding: 5px;
+        border-radius: 5px;
+        display: block;
+        text-align: center;
+        margin: 0px 18px;
+        margin-top: 8px;
+    }
+
+    .Lauring {
+        background-color: #c36521;
+    }
+
+    .Explore {
+        background-color: #0f8b40;
+    }
+
+    .Reggae {
+        background-color: #7622af;
+    }
+
+    
 }
 
 .button-link {
@@ -231,4 +348,8 @@ footer {
     color: white;
     text-decoration: none;
     display: inline-block;
+}
+
+a {
+    text-decoration: none;
 }

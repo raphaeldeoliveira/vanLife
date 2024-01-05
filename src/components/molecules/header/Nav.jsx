@@ -1,12 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
     return (
         <div>
-            <Link className="link" to="/">Home</Link>
-            <Link className="link" to="/about">About</Link>
-            <Link className="link" to="/host">Host</Link>
+            <NavLink 
+                className={({isActive}) => isActive ? "link link--active" : "link"}
+                to="/"
+                >Home
+            </NavLink>
+            <NavLink 
+                className={({isActive}) => isActive ? "link link--active" : "link"}
+                to="/about"
+                >About
+            </NavLink>
+            <NavLink 
+                className={({isActive}) => isActive ? "link link--active" : "link"}
+                to="/host"
+                >Host
+            </NavLink>
         </div>
     )
 }
