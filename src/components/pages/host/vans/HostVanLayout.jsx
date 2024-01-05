@@ -43,7 +43,7 @@ export default function HostVanLayout() {
                             className={({isActive}) => isActive ? "host-link--active host-link" : "host-link"}
                         >Photos</NavLink>
                     </nav>
-                    <Outlet />
+                    <Outlet context={ vanData } />
                 </div>
             ) 
             : (
