@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import Button from "../../molecules/home/Button";
 
 export default function VanDetail() {
@@ -7,6 +7,7 @@ export default function VanDetail() {
     const [dataVan, setDataVan] = useState(null)
 
     const params = useParams()
+    const location = useLocation()
 
     useEffect(() => {
         fetch(`http://localhost:8080/vans/${params.id}`)
@@ -17,6 +18,7 @@ export default function VanDetail() {
 
     return (
         <div className="vanDetail">
+            <Link to={`../?${location.state.search}`} relative="path">&#x2190; Back to {location.state.search ? location.state.search.split('=')[1] : "all"} vans</Link>
             {(dataVan ? (
                 <>
                     <img src={dataVan.urlImage} alt=""/>

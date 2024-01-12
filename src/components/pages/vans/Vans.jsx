@@ -20,7 +20,7 @@ export default function Vans() {
         : vansData
 
     const vanElements = displayedVans.map((van) => (
-        <Link to={`./${van.id}`} className="van-card" key={van.id}>
+        <Link to={`./${van.id}`} className="van-card" key={van.id} state={{search: searchParams.toString()}}>
             <img src={van.urlImage} alt={van.vanName} />
             <div className="van-card__container">
                 <h3>{van.vanName}</h3>
@@ -30,14 +30,52 @@ export default function Vans() {
         </Link>
     ));
 
+    function handleFilterChange(key, value) {
+        setSearchParams(prevParams => {
+           if (value === null) {
+              prevParams.delete(key)
+           } else {
+              prevParams.set(key, value)
+           }
+           return prevParams
+        })
+    }
+
     return (
         <div className="vans">
             <h1>Explore our vans options</h1>
             <nav className="navType">
-                <Link to="?type=Lauring">Lauring</Link>
-                <Link to="?type=Explore">Explore</Link>
-                <Link to="?type=Reggae">Reggae</Link>
-                <Link to=".">Clear</Link>
+                {/*<Link 
+                    to="?type=Lauring"
+                    className={typeFilter === "Lauring" ? "navType__link--active" : ""}
+                >Lauring</Link>
+                <Link 
+                    to="?type=Explore"
+                    className={typeFilter === "Explore" ? "navType__link--active" : ""}
+                >Explore</Link>
+                <Link 
+                    to="?type=Reggae"
+                    className={typeFilter === "Reggae" ? "navType__link--active" : ""}
+                >Reggae</Link>
+                <Link 
+                    to="."
+                >Clear</Link>*/}
+                <button 
+                    onClick={() => handleFilterChange("type", "Lauring")}
+                    className={typeFilter === "Lauring" ? "navType__link--active" : ""}
+                >Lauring</button>
+                <button 
+                    onClick={() => handleFilterChange("type", "Explore")}
+                    className={typeFilter === "Explore" ? "navType__link--active" : ""}
+                >Explore</button>
+                <button 
+                    onClick={() => handleFilterChange("type", "Reggae")}
+                    className={typeFilter === "Reggae" ? "navType__link--active" : ""}
+                >Reggae</button>
+                <button 
+                    onClick={() => setSearchParams({})}
+                    style={{ display: typeFilter ? 'block' : 'none' }}
+                >Clear</button>
             </nav>
             {vansData.length > 0 ? (
                 <div className="vans-list">{vanElements}</div>

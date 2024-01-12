@@ -153,7 +153,7 @@ header {
         padding: 0px 45px;
         margin-top: 10px;
 
-        .navType__btn {
+        & > button {
             background-color: #e7c39d;
             border: 1px solid #be8f5c;
             padding: 10px;
@@ -161,10 +161,9 @@ header {
             color: black
         }
 
-        .navType__btn--active {
-            @extend .navType__btn;
-            //background-color: black;
-            //color: #e7c39d;
+        .navType__link--active {
+            background-color: black;
+            color: #e7c39d;
         }
     }
 }
@@ -223,6 +222,17 @@ header {
         margin: 20px 60px;
         text-align: center;
         border-radius: 5px;
+    }
+
+    & > a {
+        padding-left: 50px;
+        padding-top: 20px;
+        color: lighten(black, 50%);
+
+        &:hover {
+            color: black;
+            text-decoration: underline;
+        }
     }
 
 }
