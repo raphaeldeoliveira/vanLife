@@ -101,6 +101,11 @@ header {
 
 .vans {
 
+    h1 {
+        padding-top: 15px;
+        padding-left: 30px;
+    }
+
     .vans-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -139,6 +144,27 @@ header {
 
         .Reggae {
             background-color: #7622af;
+        }
+    }
+
+    .navType {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 45px;
+        margin-top: 10px;
+
+        .navType__btn {
+            background-color: #e7c39d;
+            border: 1px solid #be8f5c;
+            padding: 10px;
+            border-radius: 15px;
+            color: black
+        }
+
+        .navType__btn--active {
+            @extend .navType__btn;
+            //background-color: black;
+            //color: #e7c39d;
         }
     }
 }

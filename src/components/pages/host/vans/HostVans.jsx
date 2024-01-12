@@ -24,8 +24,16 @@ export default function HostVans() {
 
     return (
         <div className="hostVans">
-            <h1>Your listed vans</h1>
-            {vans}
+            {(hostVans) ? 
+            (
+                <>
+                    <h1>Your listed vans</h1>
+                    {vans}
+                </>
+            ) 
+            : (
+                <h2>Loading...</h2>
+            )}
         </div>
 
     )
