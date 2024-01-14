@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getVans } from "../../../api";
 
 export default function Vans() {
 
@@ -7,10 +8,16 @@ export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams()
 
     useEffect(() => {
-        fetch("http://localhost:8080/vans")
+        /*fetch("http://localhost:8080/vans")
             .then(response => response.json())
             .then(data => setVansData(data))
-            .catch(error => console.log("failed fetch", error));
+            .catch(error => console.log("failed fetch", error));*/
+        async function loadVans() {
+            const data = await getVans()
+            setVans(data)
+        }
+
+        loadVans()
     }, []);
 
     const typeFilter = searchParams.get("type")

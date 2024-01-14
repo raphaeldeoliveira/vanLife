@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
+
 import Vans from "./components/pages/vans/Vans";
 import VanDetail from "./components/pages/vans/VanDetail";
 import Layout from "./components/organisms/Layout";
@@ -22,8 +24,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}/>
           <Route path="about" element={<About />}/>
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
@@ -38,6 +40,7 @@ function App() {
               <Route path="photos" element={<Photos />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />}/>
         </Route>
       </Routes>
     </BrowserRouter>
