@@ -6,15 +6,22 @@ export default function Vans() {
 
     const [vansData, setVansData] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams()
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
-        /*fetch("http://localhost:8080/vans")
-            .then(response => response.json())
-            .then(data => setVansData(data))
-            .catch(error => console.log("failed fetch", error));*/
         async function loadVans() {
-            const data = await getVans()
-            setVans(data)
+            setLoading(true)
+            try {
+                const data = await getVans()
+                setVansData(data)
+            } catch (error) {
+                console.log("Error message below")
+                console.log(error)
+                setError(error)
+            } finally {
+                setLoading(false)
+            }
         }
 
         loadVans()
@@ -46,6 +53,14 @@ export default function Vans() {
            }
            return prevParams
         })
+    }
+
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+
+    if (error) {
+        return <h1>An error has ocurred: <br/> {error.message}</h1>
     }
 
     return (
@@ -84,11 +99,8 @@ export default function Vans() {
                     style={{ display: typeFilter ? 'block' : 'none' }}
                 >Clear</button>
             </nav>
-            {vansData.length > 0 ? (
-                <div className="vans-list">{vanElements}</div>
-            ) : (
-                <h2>Loading...</h2>
-            )}
+            <div className="vans-list">{vanElements}</div>
+            
         </div>
     );
 }
