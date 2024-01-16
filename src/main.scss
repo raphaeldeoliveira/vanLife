@@ -395,6 +395,35 @@ footer {
     display: inline-block;
 }
 
+.login {
+    h1 {
+        text-align: center;
+        margin: 15px 0px;
+    }
+
+    form {
+        width: 90%;
+        margin: auto;
+
+        & > input {
+            width: 100%;
+            margin: auto;
+            margin-bottom: 15px;
+        }
+
+        & > button {
+            width: 100%;
+            border: none;
+            padding: 15px 0px;
+            background-color: orangered;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    }
+}
+
 .not-found {
     width: 90%;
     margin: auto;

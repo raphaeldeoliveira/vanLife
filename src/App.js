@@ -18,27 +18,82 @@ import Dashboard from "./components/pages/host/Dashboard";
 import Income from "./components/pages/host/Income";
 import Review from "./components/pages/host/Review";
 import HostVans from "./components/pages/host/vans/HostVans";
-import HostVanDetail from "./components/pages/host/vans/HostVanLayout";
+import HostVanDetail, { loader as vanDetailLoader } from "./components/pages/host/vans/HostVanLayout";
 
 import Detail from "./components/pages/host/vans/Detail";
 import Pricing from "./components/pages/host/vans/Pricing";
 import Photos from "./components/pages/host/vans/Photos";
 
+import Error from "./components/pages/Error";
+import Login from "./components/pages/Login";
+import AuthRequired from "./components/pages/AuthRequired";
+
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
+  <Route path="/" element={<Layout />} errorElement={<Error />}>
     <Route index element={<Home />}/>
     <Route path="about" element={<About />}/>
-    <Route path="vans" element={<Vans />} loader={vansLoader} errorElement={<h1>Erro</h1>}/>
+    <Route path="login" element={<Login />} />
+    <Route 
+      path="vans" 
+      element={<Vans />} 
+      loader={vansLoader} 
+    />
     <Route path="vans/:id" element={<VanDetail />} />
     <Route path="host" element={<Host />} >
-      <Route index element={<Dashboard />} />
-      <Route path="income" element={<Income />} />
-      <Route path="review" element={<Review />} />
-      <Route path="vans" element={<HostVans />} />
-      <Route path="vans/:id" element={<HostVanDetail />}>
-        <Route index element={<Detail />} />
-        <Route path="pricing" element={<Pricing />} />
-        <Route path="photos" element={<Photos />} />
+      <Route 
+        index 
+        element={<Dashboard />} 
+        loader={async () => {
+          return null
+        }}
+      />
+      <Route 
+        path="income" 
+        element={<Income />} 
+        loader={async () => {
+          return null
+        }}
+      />
+      <Route 
+        path="review" 
+        element={<Review />} 
+        loader={async () => {
+          return null
+        }}
+      />
+      <Route 
+        path="vans" 
+        element={<HostVans />} 
+        loader={async () => {
+          return null
+        }}
+      />
+      <Route 
+        path="vans/:id" 
+        element={<HostVanDetail />}
+        loader={vanDetailLoader}
+      >
+        <Route 
+          index 
+          element={<Detail />} 
+          loader={async () => {
+            return null
+          }}
+        />
+        <Route 
+          path="pricing" 
+          element={<Pricing />} 
+          loader={async () => {
+            return null
+          }}
+        />
+        <Route 
+          path="photos" 
+          element={<Photos />} 
+          loader={async () => {
+            return null
+          }}
+        />
       </Route>
     </Route>
     <Route path="*" element={<NotFound />}/>
