@@ -1,11 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { NavLink, Link, useParams, Outlet } from "react-router-dom";
-import { getVans } from "../../../../api";
-
-export function loader({ params }) {
-    return getVans(params.id)
-}
 
 export default function HostVanLayout() {
 

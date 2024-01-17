@@ -18,7 +18,7 @@ import Dashboard from "./components/pages/host/Dashboard";
 import Income from "./components/pages/host/Income";
 import Review from "./components/pages/host/Review";
 import HostVans from "./components/pages/host/vans/HostVans";
-import HostVanDetail, { loader as vanDetailLoader } from "./components/pages/host/vans/HostVanLayout";
+import HostVanDetail from "./components/pages/host/vans/HostVanLayout";
 
 import Detail from "./components/pages/host/vans/Detail";
 import Pricing from "./components/pages/host/vans/Pricing";
@@ -71,7 +71,9 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route 
         path="vans/:id" 
         element={<HostVanDetail />}
-        loader={vanDetailLoader}
+        loader={async () => {
+          return null
+        }}
       >
         <Route 
           index 
